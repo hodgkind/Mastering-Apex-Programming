@@ -2,9 +2,9 @@ public class TriggerExecutionMediator {
 	
     private static TriggerExecutionMediator instance;
 
-    private Set<String> bypass;
-	private Map<String, Integer> maxCounts;
-	private Map<String, Integer> currentCounts;
+    private Set<String> bypass = new Set<String>();
+	private Map<String, Integer> maxCounts = new Map<String, Integer>();
+	private Map<String, Integer> currentCounts = new Map<String, Integer>();
     
     public static TriggerExecutionMediator getInstance() {
         if(instance == null) {

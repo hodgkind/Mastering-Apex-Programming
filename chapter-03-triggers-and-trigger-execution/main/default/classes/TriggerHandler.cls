@@ -1,4 +1,5 @@
 public virtual class TriggerHandler {
+	protected virtual void setupReferences() {}
 	protected virtual void handleBeforeInsert() {}
 	protected virtual void handleAfterInsert() {}
 	protected virtual void handleBeforeUpdate() {}
@@ -11,8 +12,9 @@ public virtual class TriggerHandler {
 	private Context triggerContext;
 
 	public void execute() {
+		setupReferences();
         String className = String.valueOf(this).split(':')[0];
-    
+
         if(TriggerExecutionMediator.getInstance().shouldBypass(className)){
             return;
         }
