@@ -1,0 +1,23 @@
+public class AccountTriggerHandler extends TriggerHandler {
+	public override void handleBeforeInsert() {
+		// implementation...
+	}
+	public override void handleAfterInsert() {
+		// implementation...
+	}
+	public override void handleBeforeUpdate() {
+		// implementation...
+	}
+	public override void handleAfterUpdate() {
+		// implementation...
+	}
+	public override void handleBeforeDelete() {
+		// implementation...
+	}
+	public override void handleAfterDelete() {
+		// implementation...
+	}
+	public override void handleAfterUndelete() {
+		// implementation...
+	}
+}
