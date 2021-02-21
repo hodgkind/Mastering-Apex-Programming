@@ -1,5 +1,5 @@
 public virtual class TriggerHandler {
-	protected virtual void setupReferences() {}
+
 	protected virtual void handleBeforeInsert() {}
 	protected virtual void handleAfterInsert() {}
 	protected virtual void handleBeforeUpdate() {}
@@ -8,17 +8,25 @@ public virtual class TriggerHandler {
 	protected virtual void handleAfterDelete() {}
 	protected virtual void handleAfterUndelete() {}
 
+	public static void run(Type triggerHandlerType) {
+		TriggerHandler instance = (TriggerHandler)triggerHandlerType.newInstance();
+		instance.execute();
+	}
+
 	@TestVisible
 	private Context triggerContext;
 
-	public void execute() {
-		setupReferences();
+	private void execute() {
+
         String className = String.valueOf(this).split(':')[0];
+		System.debug('This is: ' + className);
 
         if(TriggerExecutionMediator.getInstance().shouldBypass(className)){
+			System.debug('Bypassing: ' + Trigger.operationType);
             return;
         }
-        
+        System.debug('Not Bypassing: ' + Trigger.operationType);
+
         if(!TriggerExecutionMediator.getInstance().shouldExecute(className)) {
             return;
         }

@@ -1,25 +1,30 @@
 public class AccountTriggerHandler extends TriggerHandler {
-	
-	private Map<Id, Account> oldMap;
-	private Map<Id, Account> newMap;
-	private List<Account> oldList;
-	private List<Account> newList;
 
-	public override void setupReferences() {
-		try { oldMap = (Map<Id, Account>)Trigger.oldMap; } catch (NullPointerException ex) {}
-		try { newMap = (Map<Id, Account>)Trigger.newMap; } catch (NullPointerException ex) {}
-		try { oldList = (List<Account>)oldMap.values(); } catch (NullPointerException ex) {}
-		try { newList = (List<Account>)newMap.values(); } catch (NullPointerException ex) {}
+	private Map<Id, Account> oldMap() {
+		return  (Map<Id, Account>)Trigger.oldMap;
 	}
-	
+
+	private Map<Id, Account> newMap() {
+		return  (Map<Id, Account>)Trigger.newMap;
+	}
+
+	private List<Account> oldList() {
+		return  (List<Account>)Trigger.oldMap.values();
+	}
+
+	private List<Account> newList() {
+		return  (List<Account>)Trigger.newMap.values();
+	}
+
 	public override void handleBeforeInsert() {
 		// implementation...
+		
 		System.debug('got here into before insert');
 	}
 	public override void handleAfterInsert() {
 		// implementation...
 		System.debug('got here into after insert');
-		System.debug(oldMap);
+		System.debug(oldMap());
 	}
 	public override void handleBeforeUpdate() {
 		// implementation...
