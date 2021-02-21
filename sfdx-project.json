@@ -1,8 +1,12 @@
 {
   "packageDirectories": [
     {
-      "path": "force-app",
+      "path": "chapter-04-exception-handling",
       "default": true
+    },
+    {
+      "path": "force-app",
+      "default": false
     },
     {
       "path": "chapter-03-triggers-and-trigger-execution",
