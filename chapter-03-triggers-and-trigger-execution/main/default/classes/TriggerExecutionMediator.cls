@@ -1,3 +1,29 @@
+/**
+* ─────────────────────────────────────────────────────────────────────────────────────────────────┐
+* This is part of the framework implementation for Apex Triggers.
+*
+* Developed by Cognizant on behalf of Lockton UK. This class intended to allow a developer to
+* control suppression (bypass) of a specified trigger, and set the maximum execution count so as
+* to prevent updates to other records causing triggers to run too many times.
+* ──────────────────────────────────────────────────────────────────────────────────────────────────
+* @author         Daniel Hodgkins	<daniel.hodgkins@cognizant.com>
+* @modifiedBy     Daniel Hodgkins	<daniel.hodgkins@cognizant.com>
+* @maintainedBy   Shatrughna Salunke, Varun Saxena, Lakshmana Rao
+* @version        0.1
+* @created        2021-02-01
+* @modified       2021-02-01
+* @systemLayer    Triggers
+* @see            classes/TriggerHandler.cls for concrete implementation
+* @see			  triggers/AccountTrigger.trigger for invocation example
+* ──────────────────────────────────────────────────────────────────────────────────────────────────
+* @changes
+* v0.1            daniel.hodgkins@cognizant.com
+* 2021-02-01      Implemented.
+*
+* v0.? 
+* yyyy-MM-dd	  ??
+* ─────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
 public class TriggerExecutionMediator {
 	
     private static TriggerExecutionMediator instance;

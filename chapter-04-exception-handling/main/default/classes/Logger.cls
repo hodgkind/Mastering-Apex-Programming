@@ -27,18 +27,21 @@ public with sharing class Logger {
         log.Type__c = logType;
         insert log;
         
-        ContentVersion cv = new ContentVersion();
-        cv.VersionData = Blob.valueOf(JSON.serializePretty(instance));
-        cv.Title = 'Log of state at ' + Datetime.now();
-        cv.PathOnClient = 'Log of state at ' + Datetime.now();
-        insert cv;
-
-        ContentDocumentLink cdl = new ContentDocumentLink();
-        cdl.ContentDocumentId = [SELECT ContentDocumentId FROM ContentVersion WHERE Id = :cv.Id].ContentDocumentId;
-        cdl.LinkedEntityId = log.Id;
-        cdl.ShareType = 'V';
-
-        insert cdl;
+        if (instance != null) {
+            ContentVersion cv = new ContentVersion();
+            cv.VersionData = Blob.valueOf(JSON.serializePretty(instance));
+            cv.PathOnClient = 'Log_of_state_at_' + Datetime.now() + '.json';
+            cv.Title = 'Log of state at ' + Datetime.now();
+            insert cv;
+    
+            ContentDocumentLink cdl = new ContentDocumentLink();
+            cdl.ContentDocumentId = [SELECT ContentDocumentId FROM ContentVersion WHERE Id = :cv.Id].ContentDocumentId;
+            cdl.LinkedEntityId = log.Id;
+            cdl.ShareType = 'V';
+    
+            insert cdl;
+        }
+        
     }
 
     public static void log(String stackTrace, String logMessage, String logType) {

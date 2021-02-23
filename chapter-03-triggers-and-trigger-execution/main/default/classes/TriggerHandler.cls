@@ -1,3 +1,30 @@
+/**
+* ─────────────────────────────────────────────────────────────────────────────────────────────────┐
+* This is the framework/virtual class for Apex Triggers.
+*
+* Developed by Cognizant on behalf of Lockton UK. This class is intended to be extended by
+* additional apex classes to implement various standard/custom object trigger handlers.
+* It is the intention 
+* ──────────────────────────────────────────────────────────────────────────────────────────────────
+* @author         Daniel Hodgkins	<daniel.hodgkins@cognizant.com>
+* @modifiedBy     Daniel Hodgkins	<daniel.hodgkins@cognizant.com>
+* @maintainedBy   Shatrughna Salunke, Varun Saxena, Lakshmana Rao
+* @version        0.1
+* @created        2021-02-01
+* @modified       2021-02-01
+* @systemLayer    Triggers
+* @see            classes/AccountTriggerHandler.cls for concrete implementation
+* @see			  triggers/AccountTrigger.trigger for invocation example
+* ──────────────────────────────────────────────────────────────────────────────────────────────────
+* @changes
+* v0.1            daniel.hodgkins@cognizant.com
+* 2021-02-01      Implemented this class along with AccountTriggerHandler
+*                 Invocation from AccountTrigger.trigger
+*
+* v0.1            daniel.hodgkins@cognizant.com
+* 2021-02-04      Refactored/simplified how this is invoked.
+* ─────────────────────────────────────────────────────────────────────────────────────────────────┘
+*/
 public virtual class TriggerHandler {
 
 	protected virtual void handleBeforeInsert() {}
